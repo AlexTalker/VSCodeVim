@@ -60,3 +60,14 @@ jobs:
         run: |
           gulp prepare-test
           yarn test
+
+      - name: Build extension package
+        id: build_vsix
+        run: |
+          yarn package
+
+      - name: Upload the VSIX artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: vscode-extension-${matrix.os}
+          path: "*.vsix"
