@@ -7,6 +7,16 @@ on:
   pull_request:
     branches:
       - '**'
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: "Branch to build from"
+        required: true
+        type: string
+        default: "master"
+
+env:
+  GIT_BRANCH: "${{ inputs.branch || github.ref_name }}"
 
 jobs:
   build:
@@ -17,6 +27,8 @@ jobs:
     steps:
       - name: Checkout VSCodeVim
         uses: actions/checkout@v3
+        with:
+          ref: "${{ env.GIT_BRANCH }}"
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
