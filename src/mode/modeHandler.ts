@@ -457,6 +457,8 @@ export class ModeHandler implements vscode.Disposable, IModeHandler {
 
     const printableKey = Notation.printableKey(key, configuration.leader);
     Logger.debug(`Handling key: ${printableKey}`);
+    // prettier-ignore
+    Logger.debug(`My Handling key: ${printableKey}`);
 
     if (
       (key === SpecialKeys.TimeoutFinished ||
