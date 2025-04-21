@@ -17,6 +17,9 @@ export class Logger {
     Logger.output.info(msg);
   }
   public static debug(msg: string): void {
+    if (Logger.output === undefined) {
+      Logger.init();
+    }
     Logger.output.debug(msg);
   }
   public static trace(msg: string): void {
