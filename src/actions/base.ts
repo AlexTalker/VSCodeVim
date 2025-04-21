@@ -263,6 +263,8 @@ export function getRelevantAction(
   vimState: VimState,
 ): BaseAction | KeypressState {
   const possibleActionsForMode = actionMap.get(vimState.currentMode) ?? [];
+  // prettier-ignore
+  Logger.debug("getRelevantAction: ${keysPressed}");
 
   let hasPotentialMatch = false;
   for (const actionType of possibleActionsForMode) {
