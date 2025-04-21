@@ -468,6 +468,7 @@ export class ModeHandler implements vscode.Disposable, IModeHandler {
       this.vimState.recordedState.bufferedKeysTimeoutObj = undefined;
       this.vimState.recordedState.commandList = [...this.vimState.recordedState.bufferedKeys];
       this.vimState.recordedState.bufferedKeys = [];
+      Logger.debug("Handle timeout: ${this.vimState.recordedState.commandList}");
     }
 
     // rewrite copy
