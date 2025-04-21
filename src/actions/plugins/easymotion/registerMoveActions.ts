@@ -7,8 +7,7 @@ import {
   SearchByCharCommand,
   SearchByNCharCommand,
 } from './easymotion.cmd';
-
-import { Logger } from '../util/logger';
+import { Logger } from './../../../util/logger';
 
 // EasyMotion n-char-move command
 
@@ -94,6 +93,7 @@ class EasyMotionFindForwardCommand extends EasyMotionCharMoveCommandBase {
 
   constructor() {
     super(new SearchByCharCommand({ charCount: 1, searchOptions: 'min' }));
+    // prettier-ignore
     Logger.debug("EasyMotion - forward lookup");
   }
 }

@@ -7,7 +7,6 @@ import { configuration } from './../configuration/configuration';
 import { Mode } from './../mode/mode';
 import { VimState } from './../state/vimState';
 import { isLiteralMode, unmapLiteral } from '../configuration/langmap';
-
 import { Logger } from '../util/logger';
 
 export abstract class BaseAction implements IBaseAction {
@@ -286,7 +285,8 @@ export function getRelevantAction(
 export function RegisterAction(action: new () => BaseAction): void {
   const actionInstance = new action();
   for (const modeName of actionInstance.modes) {
-    Logger.debug("Registered Action: ${action} for ${modeName}");
+    // prettier-ignore
+    Logger.debug("Registered Action: ${actionInstance} for ${modeName}");
     let actions = actionMap.get(modeName);
     if (!actions) {
       actions = [];
